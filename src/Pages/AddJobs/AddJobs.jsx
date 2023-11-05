@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 
 
 const AddJobs = () => {
@@ -11,6 +13,25 @@ const AddJobs = () => {
         const salary = form.salary.value
         const a_number = form.a_number.value
         console.log(post_name,job_title,post_date,application,salary,a_number);
+        const newJobs = {post_name,job_title,post_date,application,salary,a_number}
+         
+        fetch('http://localhost:5001/alljobs',{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newJobs)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.insertedId){
+                swal("Data SuccessFully Send to dataBase");
+            }
+            
+        })
+
+
 
     }
     return (
@@ -67,7 +88,7 @@ const AddJobs = () => {
                         </label>
                         <label className="input-group">
                             <span>Salary</span>
-                            <input type="date" name="salary" placeholder=" Salary range" className="input input-bordered w-full" />
+                            <input type="text" name="salary" placeholder=" Salary range" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-3">
@@ -76,7 +97,7 @@ const AddJobs = () => {
                         </label>
                         <label className="input-group">
                             <span>Date</span>
-                            <input type="date" name="a_number" placeholder="Job Applicants Number" className="input input-bordered w-full" />
+                            <input type="text" name="a_number" placeholder="Job Applicants Number" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
