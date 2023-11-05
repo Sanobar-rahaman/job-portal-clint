@@ -29,8 +29,9 @@ const router = createBrowserRouter([
             element:<Register></Register>
         },
         {
-            path:'jobs/:name',
-            element: <Jobs></Jobs>
+            path:'jobs/:job_title',
+            element: <Jobs></Jobs>,
+            loader:({params})=>fetch(`http://localhost:5001/job/${params.job_title}`)
         },
         {
             path:'/addjobs',

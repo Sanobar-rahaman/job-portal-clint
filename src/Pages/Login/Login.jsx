@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 
 const Login = () => {
-    const{logInUser} = useContext(AuthContex)
+    const{logInUser,GoogleSignIn} = useContext(AuthContex)
     const handleLogin = e =>{
         e.preventDefault()
         const tostId =toast.loading('login in')
@@ -20,6 +20,15 @@ const Login = () => {
         })
         .catch(error=>{
             toast.error(error.message,{id:tostId})
+            console.log(error);
+        })
+    }
+    const handleGoogleSignIn = ()=>{
+        GoogleSignIn()
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
             console.log(error);
         })
     }
@@ -47,6 +56,10 @@ const Login = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
+                                <div className="flex justify-center items-center">
+                                <button onClick={handleGoogleSignIn} className="btn btn-circle">google</button>
+                                </div>
+
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
