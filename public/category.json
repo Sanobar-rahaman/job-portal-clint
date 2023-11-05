@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "On-Site-Job",
+      "image": "https://i.ibb.co/FBnC33q/job-search-vector-16449620.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Remote-Job",
+      "image": "https://i.ibb.co/7QFHjhj/depositphotos-71571591-stock-photo-job-search-qualification-concept.webp"
+    },
+    {
+      "id": 3,
+      "name": "Hybrid",
+      "image": "https://i.ibb.co/8jwWrtd/download-1.png"
+    },
+    {
+      "id": 4,
+      "name": "Part-Time",
+      "image": "https://i.ibb.co/0MqXkjd/2936630.png"
+    }
+    
+  ]
