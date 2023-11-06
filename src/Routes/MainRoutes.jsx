@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Jobs from "../Pages/Jobs/Jobs";
 import AddJobs from "../Pages/AddJobs/AddJobs";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import Details from "../Pages/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             element:<Register></Register>
         },
         {
-            path:'jobs/:job_title',
+            path:'/jobs/:job_title',
             element: <Jobs></Jobs>,
             loader:({params})=>fetch(`http://localhost:5001/job/${params.job_title}`)
         },
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
             path:'/alljobs',
             element:<AllJobs></AllJobs>,
             loader: ()=>fetch('http://localhost:5001/alljobs')
+        },
+        {
+            path:'/detail/:id',
+            element:<Details></Details>,
+            loader:({params})=>fetch(`http://localhost:5001/detailjob/${params.id}`)
         }
 
 

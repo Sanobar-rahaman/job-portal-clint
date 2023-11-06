@@ -4,6 +4,7 @@ import JobCard from "./JobCard";
 
 const AllJobs = () => {
     const jobs = useLoaderData()
+    console.log(jobs);
     
     return (
         <div>
