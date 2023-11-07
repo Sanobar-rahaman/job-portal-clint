@@ -14,7 +14,7 @@ const ApplyJobs = () => {
     // console.log(url);
 
     useEffect(()=>{
-        axios.get(url,)
+        axios.get(url,{withCredentials:true})
         .then(res=>{
             setApply(res.data)
         })
@@ -39,6 +39,12 @@ const ApplyJobs = () => {
                 setApply(remaing)
             }
         })
+        // cookie('token', token, {
+        //     httpOnly: true,
+        //     secure: process.env.NODE_ENV === 'production', 
+        //     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+
+        // })
 
     }
 
