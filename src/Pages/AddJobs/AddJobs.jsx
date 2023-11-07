@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import swal from 'sweetalert';
+import { AuthContex } from '../../Provider/AuthProvider';
 
 
 
 const AddJobs = () => {
+    const{user} = useContext(AuthContex)
     const handleSubmit = e =>{
         e.preventDefault()
         const form  = e.target
@@ -46,7 +49,7 @@ const AddJobs = () => {
                         </label>
                         <label className="input-group">
                             <span>Name</span>
-                            <input type="text" name="post_name" placeholder="Posted By" className="input input-bordered w-full" />
+                            <input type="text" name="post_name" defaultValue={user?.email} placeholder="Posted By" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-3">

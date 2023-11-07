@@ -37,7 +37,10 @@ const NavBar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <div className="flex justify-center items-center">
+                        <img className=" rounded-full h-[60px]" src="https://i.ibb.co/6JgrcYV/job-portal-lettering-logo-design-template-concept-vector-37017445.jpg" alt=""  />
+                    <a className="btn btn-ghost normal-case text-xl">Job Portal</a>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -47,9 +50,12 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                   {
-                    user && <span>{user.email}</span>
-                   }
+                    {
+                        user && <div className=" flex gap-4 justify-center items-center mr-4">
+                            <img className="rounded-full h-[50px]" src={user.photoURL} alt=""  />
+                            <p>Logged in as <span className=" font-bold">{user.displayName}</span></p>
+                        </div>
+                    }
                     {
                         user ? <button className="btn btn-secondary" onClick={handlogOut}>Logout</button> :
                         <Link to='/login'> <button className="btn btn-primary" >login</button></Link>

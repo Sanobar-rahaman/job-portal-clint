@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
 import { toast } from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -19,6 +20,16 @@ const Register = () => {
         createUser(email,password)
         .then(result=>{
             console.log(result.user);
+            updateProfile(result.user,{
+                displayName:name,
+                photoURL:image
+            })
+            .then(()=>{
+                console.log('profile updated');
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
             navigation('/login')
             toast.success('user created..',{id:tostId})
         })

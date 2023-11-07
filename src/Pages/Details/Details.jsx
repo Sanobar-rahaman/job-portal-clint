@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
+//import swal from '@sweetalert/with-react'
+import { AuthContex } from "../../Provider/AuthProvider";
 
 
 
 const Details = () => {
+    const {user} =useContext(AuthContex)
     const details = useLoaderData()
     const { a_number, application, job_title, post_date, post_name, salary } = details
     console.log(details);
@@ -20,6 +25,10 @@ const Details = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            swal("Good job!", `${user.email}`, "success");
+            
+              
+
         })
     }
 
