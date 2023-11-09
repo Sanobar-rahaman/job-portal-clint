@@ -15,10 +15,11 @@ const AddJobs = () => {
         const application = form.application.value
         const salary = form.salary.value
         const a_number = form.a_number.value
+        const email = form.email.value
         console.log(post_name,job_title,post_date,application,salary,a_number);
-        const newJobs = {post_name,job_title,post_date,application,salary,a_number}
+        const newJobs = {post_name,job_title,post_date,application,salary,a_number,email}
          
-        fetch('http://localhost:5001/alljobs',{
+        fetch('https://job-hunting-server-woad.vercel.app/alljobs',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -101,6 +102,16 @@ const AddJobs = () => {
                         <label className="input-group">
                             <span>Date</span>
                             <input type="text" name="a_number" placeholder="Job Applicants Number" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    {/* email */}
+                    <div className="form-control md:w-1/2 ml-3">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <label className="input-group">
+                            <span>Email</span>
+                            <input type="email" name="email" defaultValue={user?.email} placeholder="Job Applicants Number" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>

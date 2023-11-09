@@ -9,7 +9,7 @@ const Jobs = () => {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                 {
-                    jobs.map(job=><JobCard key={job._id} job={job}></JobCard>)
+                   jobs&& jobs.map(job=><JobCard key={job._id} job={job}></JobCard>)
                 }
             </div>
         </div>

@@ -40,13 +40,13 @@ const AuthProvider = ({children}) => {
             setLoading(false)
             if(currentUser){
                 
-                axios.post('http://localhost:5001/jwt',loogedUser,{withCredentials : true})
+                axios.post('https://job-hunting-server-woad.vercel.app/jwt',loogedUser,{withCredentials : true})
                 .then(res=>{
                     console.log('token respons',res.data);
                 })
             }
             else{
-                axios.post('http://localhost:5001/logout',loogedUser,{
+                axios.post('https://job-hunting-server-woad.vercel.app/logout',loogedUser,{
                     withCredentials:true
                 })
                 .then(res=>{

@@ -73,10 +73,10 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Image</span>
                                 </label>
-                                <input type="text" placeholder="Image url" name="image" className="input input-bordered" required />
+                                <input type="text" placeholder="Image url" name="image" className="input input-bordered"  />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                             <p>already have a account please<Link to='/login'><button className=" text-green-500 ml-4">login</button></Link></p>
                         </form>

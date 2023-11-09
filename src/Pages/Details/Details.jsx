@@ -9,13 +9,17 @@ import { AuthContex } from "../../Provider/AuthProvider";
 const Details = () => {
     const {user} =useContext(AuthContex)
     const details = useLoaderData()
-    const { a_number, application, job_title, post_date, post_name, salary } = details
+    const { a_number, application, job_title, post_date, post_name, salary,email, } = details
     console.log(details);
 
     const handleAddtoApply =()=>{
-        const newApply = { a_number, application, job_title, post_date, post_name, salary } 
+        if(!user.email){
+            alert('email not found')
+            return
+        }
+        const newApply = {email,applicant:user?.email, a_number, application, job_title, post_date, post_name, salary } 
         console.log(newApply);
-        fetch('http://localhost:5001/applyjob',{
+        fetch('https://job-hunting-server-woad.vercel.app/applyjob',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

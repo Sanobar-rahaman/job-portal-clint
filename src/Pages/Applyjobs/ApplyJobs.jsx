@@ -10,19 +10,22 @@ const ApplyJobs = () => {
     const[apply,setApply] = useState([])
 
     // const url ='http://localhost:5001/applyjob'
-    const url =`http://localhost:5001/applyjob?email${user?.email}`
+    
     // console.log(url);
 
     useEffect(()=>{
-        axios.get(url,{withCredentials:true})
+        const url =`https://job-hunting-server-woad.vercel.app/applyjob?email=${user?.email}`
+        if(user?.email){
+            axios.get(url,{withCredentials:true})
         .then(res=>{
             setApply(res.data)
         })
-    })
+        }
+    },[user?.email])
 
     const handleDelete = (id) =>{
         // console.log(id);
-        fetch(`http://localhost:5001/deletejob/${id}`,{
+        fetch(`https://job-hunting-server-woad.vercel.app/deletejob/${id}`,{
             method:"DELETE",
 
         })

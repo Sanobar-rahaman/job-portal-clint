@@ -10,6 +10,7 @@ import Details from "../Pages/Details/Details";
 import ApplyJobs from "../Pages/Applyjobs/ApplyJobs";
 import PrivateRoute from "./PrivateRoutes";
 import Blog from "../Pages/Blog/Blog";
+import MyJob from "../Pages/MyJob/MyJob";
 
 const router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         {
             path:'/jobs/:job_title',
             element: <Jobs></Jobs>,
-            loader:({params})=>fetch(`http://localhost:5001/job/${params.job_title}`)
+            loader:({params})=>fetch(`https://job-hunting-server-woad.vercel.app/job/${params.job_title}`)
         },
         {
             path:'/addjobs',
@@ -44,18 +45,25 @@ const router = createBrowserRouter([
         {
             path:'/alljobs',
             element:<AllJobs></AllJobs>,
-            loader: ()=>fetch('http://localhost:5001/alljobs')
+            loader: ()=>fetch('https://job-hunting-server-woad.vercel.app/alljobs')
+            // loader: ()=>fetch('http://localhost:5001/alljobs')
         },
         {
             path:'/detail/:id',
             element:<PrivateRoute><Details></Details></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5001/detailjob/${params.id}`)
+            loader:({params})=>fetch(`https://job-hunting-server-woad.vercel.app/detailjob/${params.id}`)
         },
         {
             path:'/appliedjobs',
             element:<ApplyJobs></ApplyJobs>,
-            loader:()=>fetch('http://localhost:5001/applyjob')
+            loader:()=>fetch('https://job-hunting-server-woad.vercel.app/applyjob')
         },
+        {
+            path:'/myjob',
+            element: <MyJob></MyJob>,
+            loader: ()=>fetch('https://job-hunting-server-woad.vercel.app/alljobs')
+        },
+
         {
             path:'/blog',
             element: <Blog></Blog>
